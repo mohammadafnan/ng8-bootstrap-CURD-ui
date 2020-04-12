@@ -1,0 +1,26 @@
+<h1>Products</h1>
+<button routerLink="add" class="btn btn-md btn-outline-primary mt-1 mb-1 btn-rounded">
+    <i class="material-icons">add</i>Add Product
+</button>
+<table class="table products-table table-dark table-striped" style="border-radius: 10px;">
+    <tr>
+        <th>Name</th>
+        <th>Price</th>
+        <th style="text-align: center;">Delete</th>
+    </tr>
+    <tr *ngFor="let product of products">
+        <td><a title="Want to Edit" style="color:aliceblue !important; font-weight: 600; text-decoration: none; "
+                [routerLink]="['edit', product.id]">{{product.name}}</a></td>
+        <td>${{product.price}}</td>
+        <td class="delete-column">
+            <button (click)="deleteProduct(product.id)" [disabled]="product.deleting"
+                class="btn btn-sm btn-outline-danger btn-rounded">
+                <span *ngIf="product.deleting" class="spinner-border spinner-border-sm mr-1"></span>
+                Delete
+            </button>
+        </td>
+    </tr>
+</table>
+<div class="view-side-form">
+    <router-outlet></router-outlet>
+</div>
