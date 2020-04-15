@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { appRoutingModule, routedComponents } from './app.routing';
+import { AgmCoreModule } from '@agm/core';
 
 // used to create fake backend
 import { fakeBackendProvider } from './_helpers';
@@ -16,7 +17,10 @@ import { fakeBackendProvider } from './_helpers';
         FormsModule,
         BrowserAnimationsModule,
         HttpClientModule,
-        appRoutingModule
+        appRoutingModule,
+        AgmCoreModule.forRoot({
+            apiKey: ''
+        })
     ],
     declarations: [
         AppComponent,

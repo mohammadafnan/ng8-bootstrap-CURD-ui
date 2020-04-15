@@ -17,6 +17,8 @@ import { fadeInAnimation, EnterLeaveAnimation } from '../_animations/index';
 })
 
 export class ProductListComponent implements OnInit, OnDestroy {
+    lat: number = 51.678418;
+    lng: number = 7.809007;
     products: any[];
     subscription: Subscription;
     loading = false;
